@@ -1,0 +1,42 @@
+User Manual for Joshua Vanderstoops simple c proxy
+
+Features: 
+	- When global integer variables item1, item2, and item3 are all set to 0, 
+		this proxy will be transparent for the test websites provided on 
+		the webpage: http://pages.cpsc.ucalgary.ca/~carey/CPSC441/assignment1.html
+		this configuration of the proxy can be done by accessing the source code
+		'proxy_vanderstoop.c' and on lines 36-38, edit all integer values to show 
+		int item1 = 0; //floppy
+		int item2 = 0; //spongebob
+		int item3 = 0; //curling
+	- If you wish to block one of the three options above, using the same process, 
+		simply switch any '0' to '1' to turn on the browser block for the specified 
+		item. Turning any of them on will not only block URL's containing blocked
+		words, but also block any page that contains a blocked word in the text/body
+		of the page. 
+	- This proxy is NOT dynamically configurable, and will not accept any user input 
+		during runtime.
+	- While blocking an item is switched on, the user should be careful not to reload 
+		the main Assignment 1 page(linked above). This will result in that page 
+		being blocked, as it contains all 3 blocked words in the body of the page.
+Usage:
+	- First, move onto any suitable university computer using the commands: 
+		ssh your.username@linux.cpsc.ucalgary.ca
+		YourPassword1235
+	- now, move proxy_vanderstoop.c onto the computer using any method you would like,
+		I use FileZilla.
+	- now compile the program using the command:
+		gcc -o proxy.exe proxy_vanderstoop.c
+	- In your browser, ensure that you are ready to configure your proxy settings, 
+		the main assignment 1 page (link above) is open, and your cache is clear. 
+	- run the program using the command: 
+		./proxy.exe
+	- now, you will see some information printed to the terminal. Use the IP address 
+		that is visible, and port 8869 on your web browser proxy settings, and 
+		save that setting. 
+	- while the Assignment 1 main page is open, scroll down to the "Testing" section, 
+		and click whatever links you want. If you have any blocked items turned on
+		the page will not be visible to you, and you will instead see an error page. 
+	- to end the program, simply type the command ctrl + c and it will stop. 
+	- From this point you can reconfigure your blocked items, save, recompile and run 
+		the proxy again.  
